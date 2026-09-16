@@ -104,7 +104,6 @@
                   <th>Task Name</th>
                   <th>User Name</th>
                   <th>Task Status</th>
-                  <th>الإجراءات</th>
                 </tr>
               </thead>
               <tbody id="tasksTableBody"></tbody>
@@ -114,21 +113,120 @@
       </div>
 
       <div class="d-flex gap-3 mt-4 flex-wrap">
-        <button class="btn btn-primary btn-lg px-4" onclick="addNewUser()">
+        <button
+          class="btn btn-primary btn-lg px-4"
+          data-bs-toggle="modal"
+          data-bs-target="#addUserModal"
+        >
           <i class="bi bi-person-plus-fill"></i> إضافة مستخدم جديد
         </button>
-        <button class="btn btn-success btn-lg px-4" onclick="addNewTask()">
+        <button
+          class="btn btn-success btn-lg px-4"
+          data-bs-toggle="modal"
+          data-bs-target="#addTaskModal"
+          onclick="loadUsersForTask()"
+        >
           <i class="bi bi-plus-circle-fill"></i> إضافة مهمة جديدة
         </button>
       </div>
     </div>
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">إضافة مستخدم جديد</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
 
+          <form id="addUserForm">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="userNameInput" class="form-label fw-bold"
+                  >اسم المستخدم</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userNameInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="userEmailInput" class="form-label fw-bold"
+                  >البريد الإلكتروني</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="userEmailInput"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                إلغاء
+              </button>
+
+              <button type="submit" class="btn btn-primary">إضافة</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <div class="modal fade" id="addTaskModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">إضافة مهمة جديدة</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <form id="addTaskForm">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="taskUserSelect" class="form-label fw-bold">اختر المستخدم</label>
+              <select class="form-select" id="taskUserSelect" required>
+                <option value="">جاري تحميل المستخدمين...</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="taskNameInput" class="form-label fw-bold">اسم المهمة</label>
+              <input type="text" class="form-control" id="taskNameInput" placeholder="مثال: تصميم الواجهة" required>
+            </div>
+            <div class="mb-3">
+              <label for="taskStatusSelect" class="form-label fw-bold">حالة المهمة</label>
+              <select class="form-select" id="taskStatusSelect" required>
+                <option value="pending">لم تبدأ (قيد الانتظار)</option>
+                <option value="in-progress">قيد التنفيذ</option>
+                <option value="completed">مكتملة</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+            <button type="submit" class="btn btn-success">إضافة</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
 
-    <script src="JS/script.js"></script>
+    <script src="./Client/main.js"></script>
   </body>
 </html>

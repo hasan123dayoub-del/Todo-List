@@ -1,14 +1,29 @@
 {
-  "user": [
+  "users": [
     {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "password": "password123"
+      "name": "بانة الصواف ",
+      "email": "banaalsawaf1@gmail.com",
+      "id": "OYChPrvIcbQ"
     },
     {
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com",
-      "password": "password456"
+      "name": "حسن ديوب",
+      "email": "hasan@gmail.com",
+      "id": "xUbbinAhKxE"
     }
-  ]
+  ],
+  "tasks": [
+    {
+      "userId": null,
+      "taskName": "تصميم الواجهة ",
+      "status": "pending",
+      "id": "obFF4XmO33k"
+    },
+    {
+      "userId": null,
+      "taskName": "تصميم الواجهة ",
+      "status": "pending",
+      "id": "CLqj0mDJ1rc"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
