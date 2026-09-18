@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users Management</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container-fluid">
+        <span class="navbar-brand fw-bold"
+          ><i class="bi bi-person-badge"></i> إدارة المستخدمين</span
+        >
+        <a href="index.html" class="btn btn-outline-light border-0"
+          ><i class="bi bi-arrow-left fs-4"></i
+        ></a>
+      </div>
+    </nav>
+
+    <div class="container my-5">
+      <div
+        class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"
+      >
+        <div>
+          <h2 class="fw-bold mb-1">المستخدمون</h2>
+          <p class="text-muted mb-0">إدارة ومتابعة جميع المستخدمين</p>
+        </div>
+        <span class="badge bg-success fs-6 px-3 py-2" id="userCountBadge"
+          ><i class="bi bi-people-fill"></i> الإجمالي: 0</span
+        >
+      </div>
+
+      <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-dark">
+                <tr>
+                  <th># ID</th>
+                  <th>اسم المستخدم</th>
+                  <th>البريد الإلكتروني</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex gap-3 mt-4 flex-wrap">
+        <button
+          class="btn btn-primary btn-lg px-4"
+          data-bs-toggle="modal"
+          data-bs-target="#addUserModal"
+        >
+          <i class="bi bi-person-plus-fill"></i> إضافة مستخدم جديد
+        </button>
+        <button
+          class="btn btn-danger btn-lg px-4"
+          data-bs-toggle="modal"
+          data-bs-target="#deleteUserModal"
+          onclick="loadUsersForAction('delete')"
+        >
+          <i class="bi bi-trash-fill"></i> حذف مستخدم
+        </button>
+        <button
+          class="btn btn-warning btn-lg px-4 text-dark"
+          data-bs-toggle="modal"
+          data-bs-target="#editUserModal"
+          onclick="loadUsersForAction('edit')"
+        >
+          <i class="bi bi-pencil-fill"></i> تعديل معلومات مستخدم
+        </button>
+      </div>
+    </div>
+
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title">إضافة مستخدم جديد</h5>
+          </div>
+          <form id="addUserForm">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="userNameInput" class="form-label fw-bold"
+                  >اسم المستخدم</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userNameInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="userEmailInput" class="form-label fw-bold"
+                  >البريد الإلكتروني</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="userEmailInput"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                إلغاء
+              </button>
+              <button type="submit" class="btn btn-primary">إضافة</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="deleteUserModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title">حذف مستخدم نهائياً</h5>
+          </div>
+          <form id="deleteUserForm">
+            <div class="modal-body">
+              <label class="form-label fw-bold"
+                >اختر المستخدم الذي تريد حذفه:</label
+              >
+              <select class="form-select" id="deleteUserSelect" required>
+                <option value="">جاري تحميل المستخدمين...</option>
+              </select>
+              <div class="form-text text-danger mt-2">
+                تحذير: سيتم حذف المستخدم وجميع المهام المرتبطة به نهائياً.
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger">حذف نهائي</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-warning text-dark">
+            <h5 class="modal-title">تعديل معلومات مستخدم</h5>
+          </div>
+          <form id="editUserForm">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label fw-bold">اختر المستخدم</label>
+                <select class="form-select" id="editUserSelect" required>
+                  <option value="">جاري تحميل المستخدمين...</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="editUserNameInput" class="form-label fw-bold"
+                  >الاسم الجديد</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editUserNameInput"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="editUserEmailInput" class="form-label fw-bold"
+                  >البريد الإلكتروني الجديد</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="editUserEmailInput"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                إلغاء
+              </button>
+              <button type="submit" class="btn btn-warning text-dark">
+                حفظ التعديلات
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Client/common.js"></script>
+    <script src="Client/users.js"></script>
+  </body>
+</html>
