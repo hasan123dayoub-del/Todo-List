@@ -2,27 +2,27 @@
   "users": [
     {
       "name": "بانة الصواف ",
-      "email": "banaalsawaf1@gmail.com",
-      "id": "OYChPrvIcbQ"
+      "email": "bana@gmail.com",
+      "id": "tttarrmwT-I"
     },
     {
       "name": "حسن ديوب",
       "email": "hasan@gmail.com",
-      "id": "xUbbinAhKxE"
+      "id": "v15DHDew6k8"
     }
   ],
   "tasks": [
     {
-      "userId": null,
+      "userId": "tttarrmwT-I",
       "taskName": "تصميم الواجهة ",
       "status": "pending",
-      "id": "obFF4XmO33k"
+      "id": "EI_3yppOCuo"
     },
     {
-      "userId": null,
-      "taskName": "تصميم الواجهة ",
-      "status": "pending",
-      "id": "CLqj0mDJ1rc"
+      "userId": "v15DHDew6k8",
+      "taskName": "backend",
+      "status": "in-progress",
+      "id": "qD91iMQLzpQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

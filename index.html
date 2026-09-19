@@ -31,9 +31,9 @@
         >
           <i class="bi bi-list fs-3"></i>
         </button>
-        <a class="navbar-brand fw-bold" href="#">
+        <span class="navbar-brand fw-bold">
           <i class="bi bi-check2-square text-success"></i> ToDo List
-        </a>
+        </span>
         <div></div>
       </div>
     </nav>
@@ -55,21 +55,16 @@
       <div class="offcanvas-body">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link text-white py-3 px-2 rounded hover-bg" href="#">
-              <i class="bi bi-house-door"></i> الرئيسية
-            </a>
-          </li>
-          <li class="nav-item">
             <a
               class="nav-link text-white py-3 px-2 rounded hover-bg"
-              href="admin.html"
+              href="users.html"
             >
-              <i class="bi bi-person-badge"></i> الملف الشخصي
+              <i class="bi bi-person-badge"></i> إدارة المستخدمين
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white py-3 px-2 rounded hover-bg" href="#">
-              <i class="bi bi-gear"></i> الإعدادات
+            <a class="nav-link text-white py-3 px-2 rounded hover-bg" href="tasks.html">
+              <i class="bi bi-gear"></i> إدارة المهمات
             </a>
           </li>
           <li class="nav-item">
@@ -80,49 +75,7 @@
         </ul>
       </div>
     </div>
-    <div
-      class="offcanvas offcanvas-start bg-dark text-white"
-      tabindex="-1"
-      id="sideMenu"
-    >
-      <div class="offcanvas-header border-bottom border-secondary">
-        <h5 class="offcanvas-title">
-          <i class="bi bi-person-circle"></i> القائمة
-        </h5>
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="offcanvas"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link text-white py-3 px-2 rounded hover-bg" href="#">
-              <i class="bi bi-house-door"></i> الرئيسية
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link text-white py-3 px-2 rounded hover-bg"
-              href="admin.html"
-            >
-              <i class="bi bi-person-badge"></i> الملف الشخصي
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white py-3 px-2 rounded hover-bg" href="#">
-              <i class="bi bi-gear"></i> الإعدادات
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white py-3 px-2 rounded hover-bg" href="#">
-              <i class="bi bi-box-arrow-right"></i> تسجيل الخروج
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    
     <div
       id="heroCarousel"
       class="carousel slide carousel-fade"
@@ -155,7 +108,7 @@
              
             <h1 class="display-3 fw-bold">نظّم يومك بذكاء</h1>
             <p class="lead">أداة بسيطة وفعّالة لإدارة مهامك اليومية</p>
-            <a href="admin.html" class="btn btn-light btn-lg mt-3 px-4">
+            <a href="users.html" class="btn btn-light btn-lg mt-3 px-4">
               ابدأ الآن <i class="bi bi-arrow-left"></i>
             </a>
           </div>
@@ -167,9 +120,9 @@
             <span class="badge bg-success mb-3 px-3 py-2"> إنتاجية</span>
             <h1 class="display-3 fw-bold">تتبّع مهامك بسهولة</h1>
             <p class="lead">تابع حالة كل مهمة وانجزها في الوقت المحدد</p>
-            <a href="admin.html" class="btn btn-light btn-lg mt-3 px-4">
+            <span class="btn btn-light btn-lg mt-3 px-4">
               شاهد المهام <i class="bi bi-list-check"></i>
-            </a>
+            </spa>
           </div>
         </div>
 
@@ -179,9 +132,9 @@
             <span class="badge bg-info mb-3 px-3 py-2"> بسيط</span>
             <h1 class="display-3 fw-bold">واجهة سهلة وجذابة</h1>
             <p class="lead">تصميم حديث يركّز على ما يهم: إنجازك</p>
-            <a href="admin.html" class="btn btn-light btn-lg mt-3 px-4">
+            <span class="btn btn-light btn-lg mt-3 px-4">
               استكشف <i class="bi bi-compass"></i>
-            </a>
+            </span>
           </div>
         </div>
       </div>
@@ -250,6 +203,5 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="JS/script.js"></script>
   </body>
 </html>
